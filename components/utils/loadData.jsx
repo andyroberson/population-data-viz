@@ -29,13 +29,6 @@ export const useData = () => {
       .catch(setError);
   }, []);
 
-  useEffect(() => {
-    window.addEventListener("themeChange", () => {
-        console.log("theme changed!")
-    })
-  })
-
-
   return {
     mapData: mapData,
     data: data,
