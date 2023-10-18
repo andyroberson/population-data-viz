@@ -1,0 +1,27 @@
+.App__charts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .App__map {
+    display: flex;
+    max-width: 1200px;
+    min-width: 50vh;
+    width: 100%;
+    flex-grow: grow;
+    flex: 1;
+  
+    @media(min-width: 800px) {
+      min-height: 85vh;
+    }
+  }
+  
+  .App__table {
+    max-width: 95%;
+    min-width: 200px;
+    min-height: 100px;
+    margin-bottom: 20px;
+  }

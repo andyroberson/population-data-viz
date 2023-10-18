@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { json } from 'd3';
 import { feature } from 'topojson-client';
 
 const worldUrl = 'https://unpkg.com/visionscarto-world-atlas@0.1.0/world/110m.json';
