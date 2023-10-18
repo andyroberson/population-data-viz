@@ -1,7 +1,10 @@
 import styles from './DataViz.module.css'
 
 import { useData } from './utils/loadData';
-import Globe from "./Globe"
+import Globe from './Globe'
+import GridTable from './GridTable'
+
+
 
 const DataViz = () => {
     //load data 
@@ -16,6 +19,10 @@ const DataViz = () => {
                 <div className={styles.App__charts}>
                     <div className={styles.App__map}>
                         <Globe countries={mapData} data={data} />
+                    </div>
+
+                    <div className={styles.App__map}>
+                        <GridTable data={data}/>
                     </div>
                 </div>
             </>

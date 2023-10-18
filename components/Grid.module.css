@@ -1,0 +1,145 @@
+
+
+.table__container button &:hover {
+        cursor: pointer;
+}
+
+.table__container {
+    margin-top: 30px;
+    width: 100%;
+    font-size: 1em;
+    --theme-color: #2351A1;
+    --theme-text: #000000;
+    font-size: .5em;
+}
+
+
+.table__container .gridjs-pagination .gridjs-pages button.gridjs-spread {
+  display: none;
+}
+  
+.table__container .gridjs-pagination .gridjs-pages button {
+          border: 1px solid var(--theme-color);
+          color: var(--theme-text);
+          border-right: none;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+}
+
+.table__container .gridjs-pagination .gridjs-pages button:first-of-type {
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+}
+  
+.table__container .gridjs-pagination .gridjs-pages button:last-child {
+      border-right: 1px solid var(--theme-text);
+      border-bottom-right-radius: 3px;
+      border-top-right-radius: 3px;
+}
+  
+.table__container .gridjs-tr:nth-child(odd) {
+      background-color: white;
+}
+.table__container .gridjs-tr:nth-child(even) {
+      background-color: #f2f2f2;
+}
+  
+ .table__container td.gridjs-td {
+      background-color: transparent;
+      border: none;
+      border-right: 10px solid white;
+      border-radius: 0;
+      font-size: .5em;
+}
+  
+.table__container td.gridjs-td:last-child {
+      border-right: none;
+}
+  
+.table__container th.gridjs-th {
+      background-color: white;
+      border: 0;
+      border-bottom: 2px solid var(--theme-color);
+      font-weight: normal;
+      color: var(--theme-color);
+      font-weight: 600;
+}
+
+.table__container .gridjs-th-content {
+    font-size: 22px;
+}
+  
+.table__container  .gridjs-wrapper {
+      border-color: unset;
+      box-shadow: unset;
+}
+  
+.table__container .gridjs-footer {
+          border-radius: 8px 8px 8px 8px;
+}
+  
+.table__container th.gridjs-th-sort:focus, th.gridjs-th-sort:hover {
+      border-bottom: 2px solid var(--theme-color);
+      color: #1E3F69;
+}
+  
+
+  
+  
+.table__container .gridjs-tbody {
+      font-size: 14px;
+}
+  
+  
+.table__container .tabulator {
+    border: 0;
+}
+  
+.table__container .tabulator-header {
+    border-bottom: 0;
+}
+  
+.table__container  .tabulator .tabulator-header .tabulator-col {
+    background-color: white;
+    border: 0;
+    border-bottom: 2px solid;
+}
+  
+/* active arrow */
+.table__container .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort=descending] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
+    border-top: 6px solid var(--theme-color);
+}
+.table__container .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort=ascending] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
+    border-bottom: 6px solid var(--theme-color);
+}
+  
+/* not active arrow */
+.table__container .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort=none] .tabulator-col-content .tabulator-col-sorter .tabulator-arrow {
+    border-bottom: 6px solid var(--theme-color);
+}
+  
+.table__container span a {
+    transition: ease-in-out .2s all;
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.table__container span a:hover {
+opacity: .7;
+}  
+  
+@media(max-width: 700px) {
+    .table__container .gridjs-pagination .gridjs-summary {
+        float: unset;
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .table__container .gridjs-pagination .gridjs-pages {
+        float: unset;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+}  
