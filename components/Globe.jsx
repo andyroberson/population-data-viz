@@ -1,10 +1,34 @@
 import { geoNaturalEarth1, geoPath, geoGraticule, scaleSequential, extent, interpolateYlGnBu } from "d3"
-import styles from './Map.module.css'
+import styles from './Globe.module.css'
 
 import { useChartDimensions } from "./utils/utils";
 
+import { useThemeUI } from 'theme-ui'
+
+import { useState, useEffect } from "react";
+
+
 const Globe = ({ countries, data }) => {
 
+    //set styles based on the current theme ui
+    const getTheme = useThemeUI();
+
+    const [themeColor, setThemeColor] = useState(getTheme.colorMode === 'dark' ? 'white' : 'black')
+    const [globeColor, setGlobeColor] = useState(getTheme.colorMode === 'dark' ? '#1b1e23' : 'white')
+    const [gridColor, setGridColor] = useState(getTheme.colorMode === 'dark' ? 'black' : '#dadada')
+
+    useEffect(() => {
+      const themeColor = getTheme.colorMode === 'dark' ? 'white' : 'black';
+      const globeColor = getTheme.colorMode === 'dark' ? '#1b1e23' : 'white';
+      const gridColor = getTheme.colorMode === 'dark' ? 'black' : '#dadada'; 
+
+      setThemeColor(themeColor);
+      setGlobeColor(globeColor);
+      setGridColor(gridColor);
+
+    }, [getTheme])
+
+    //we <3 responsive chart
     const [ref, dms] = useChartDimensions({})
   
     //fixing A3 codes for countries that don't have matches
@@ -20,7 +44,7 @@ const Globe = ({ countries, data }) => {
     const projection = geoNaturalEarth1().fitWidth(dms.width, sphere);
     const path = geoPath(projection);
     const graticule = geoGraticule();
-    const showGraticules = false;
+    const showGraticules = true;
   
     // fit svg to height of map
     const [
@@ -30,7 +54,7 @@ const Globe = ({ countries, data }) => {
     const paddingBottom = 25
     const height = y1 + paddingBottom
   
-    //setting colors
+    //setting color scales
     const target = data.map(d => [ d.cca3, d.population ])
     const valuemap = new Map(target)
     const color = scaleSequential(extent(valuemap.values()), interpolateYlGnBu);
@@ -40,8 +64,7 @@ const Globe = ({ countries, data }) => {
     const colorScale = scaleSequential()
       .domain([0, 99])
       .interpolator(interpolateYlGnBu)
-  
-  
+    
     return (
         <div ref={ref} style={{ width: "100%" }}>
           <svg width={dms.width} height={height} role="figure" tabIndex={0}> 
@@ -72,9 +95,9 @@ const Globe = ({ countries, data }) => {
               </defs>
     
               <g className={styles.marks} style={{ clipPath: "url(#sphere)" }} transform={`translate(0, ${paddingBottom})`}>
-                <path className={styles.sphere} d={path(sphere)} />
+                <path fill={globeColor} className={styles.sphere} d={path(sphere)} />
                   { showGraticules && 
-                     <path className={styles.graticules} d={path(graticule())} />
+                     <path stroke={gridColor} className={styles.graticules} d={path(graticule())} />
                   }
     
                   <g className="countries-group" tabIndex={0} role="list" aria-label="countries">
@@ -98,10 +121,10 @@ const Globe = ({ countries, data }) => {
               </g>
       
     
-              <g className="legend" transform={`translate(${dms.boundedWidth / 2 - dms.marginLeft}, 0)`} role="presentation" aria-hidden="true">
-                  <text className={styles.legendtext} transform="translate(-10, 10)">0</text>  
+              <g className="legend" transform={`translate(10, 0)`} role="presentation" aria-hidden="true">
+                  <text className={styles.legendtext} fill={themeColor} transform="translate(-10, 10)">0</text>  
                   <rect height="10px" width="240px" style={{fill:  "url(#colorScale)"}}></rect>
-                  <text className={styles.legendtext} transform="translate(245, 10)">1.402 billion</text>
+                  <text className={styles.legendtext} fill={themeColor}  transform="translate(245, 10)">1.402 billion</text>
               </g>
     
     

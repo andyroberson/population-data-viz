@@ -27,7 +27,13 @@ export const useData = () => {
             setMapData(feature(topology, countries));
       })
       .catch(setError);
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("themeChange", () => {
+        console.log("theme changed!")
+    })
+  })
 
 
   return {

@@ -1,9 +1,3 @@
-
-
-.table__container button &:hover {
-        cursor: pointer;
-}
-
 .table__container {
     margin-top: 30px;
     width: 100%;
@@ -11,6 +5,14 @@
     --theme-color: #2351A1;
     --theme-text: #000000;
     font-size: .5em;
+}
+
+.table__container button {
+    color: var(--theme-color);
+}
+
+.table__container button &:hover {
+    cursor: pointer;
 }
 
 

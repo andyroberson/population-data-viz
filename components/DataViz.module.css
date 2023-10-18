@@ -8,7 +8,7 @@
   
   .App__map {
     display: flex;
-    max-width: 1200px;
+    max-width: 1100px;
     min-width: 50vh;
     width: 100%;
     flex-grow: grow;
@@ -16,6 +16,10 @@
   
     @media(min-width: 800px) {
       min-height: 85vh;
+    }
+
+    @media(min-width: 1100px) {
+      min-height: unset;
     }
   }
   
