@@ -14,8 +14,8 @@
     flex-grow: grow;
     flex: 1;
   
-    @media(min-width: 800px) {
-      min-height: 85vh;
+    @media(min-width: 700px) {
+      min-height: 50vh;
     }
 
     @media(min-width: 1100px) {
